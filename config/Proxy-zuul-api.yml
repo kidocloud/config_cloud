@@ -31,4 +31,4 @@ ribbon:
 
 User-service:
   ribbon:
-    listOfServers: http://localhost:33001,http://localhost:33002,http://61.28.226.134:33003
+    listOfServers: http://localhost:33001,http://localhost:33002
