@@ -25,10 +25,19 @@ zuul:
       serviceId: Order-service
       stripPrefix: true
 
-ribbon:
-  eureka:
-    enabled: false
+hystrix:
+  command:
+    User-service:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: ...
 
 User-service:
   ribbon:
+    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
     listOfServers: http://localhost:33001,http://localhost:33002
+    ConnectTimeout: 1000
+    ReadTimeout: 3000
+    MaxTotalHttpConnections: 500
+    MaxConnectionsPerHost: 100
