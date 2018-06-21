@@ -9,6 +9,8 @@ eureka:
 logging:
   pattern: 
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+  file: zuul.log
               
 zuul:
   routes:
@@ -37,7 +39,7 @@ User-service:
   ribbon:
     NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
     listOfServers: http://localhost:33001,http://localhost:33002
-    ConnectTimeout: 1000
-    ReadTimeout: 3000
+    ConnectTimeout: 5000
+    ReadTimeout: 5000
     MaxTotalHttpConnections: 500
     MaxConnectionsPerHost: 100
