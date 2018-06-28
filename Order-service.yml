@@ -10,5 +10,5 @@ logging:
   pattern: 
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
-  file: orderservice.log
-  #file: /var/kido/logs/orderservice.log
+  #file: orderservice.log
+  file: /var/kido/logs/orderservice.log
