@@ -1,5 +1,5 @@
 server:
-  port: 33012
+  port: 33021
 
 eureka:
   client:
@@ -10,5 +10,5 @@ logging:
   pattern: 
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
-  #file: productservice.log
-  file: /var/kido/logs/productservice2.log
+  file: orderservice.log
+  #file: /var/kido/logs/orderservice.log
