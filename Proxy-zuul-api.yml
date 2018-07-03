@@ -27,6 +27,10 @@ zuul:
       path: /orderservice/**
       serviceId: Order-service
       stripPrefix: true
+    newsservice:
+      path: /newsservice/**
+      serviceId: News-service
+      stripPrefix: true
 
 hystrix:
   command:
@@ -41,6 +45,11 @@ hystrix:
           thread:
             timeoutInMilliseconds: ...
     Order-service:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: ...
+    News-service:
       execution:
         isolation:
           thread:
@@ -68,6 +77,15 @@ Order-service:
   ribbon:
     NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
     listOfServers: http://localhost:33021,http://localhost:33022
+    ConnectTimeout: 5000
+    ReadTimeout: 5000
+    MaxTotalHttpConnections: 500
+    MaxConnectionsPerHost: 100
+
+News-service:
+  ribbon:
+    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    listOfServers: http://localhost:33031,http://localhost:33032
     ConnectTimeout: 5000
     ReadTimeout: 5000
     MaxTotalHttpConnections: 500
