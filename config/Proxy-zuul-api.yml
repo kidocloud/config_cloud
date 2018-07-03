@@ -38,22 +38,22 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: ...
+            timeoutInMilliseconds: 10000
     Product-service:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: ...
+            timeoutInMilliseconds: 10000
     Order-service:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: ...
+            timeoutInMilliseconds: 10000
     News-service:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: ...
+            timeoutInMilliseconds: 10000
 
 User-service:
   ribbon:
