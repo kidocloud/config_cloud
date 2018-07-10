@@ -38,6 +38,10 @@ zuul:
       serviceId: News-service
       stripPrefix: true
   retryable: true
+  ribbon:
+    eager-load:
+      enabled: true
+ 
 
 hystrix:
   command:
@@ -45,22 +49,22 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 20000
+            timeoutInMilliseconds: 2000000
     Product-service:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 20000
+            timeoutInMilliseconds: 2000000
     Order-service:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 20000
+            timeoutInMilliseconds: 2000000
     News-service:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 20000
+            timeoutInMilliseconds: 2000000
 
 User-service:
   ribbon:
@@ -68,52 +72,64 @@ User-service:
     #listOfServers: http://localhost:33001,http://localhost:33002,http://61.28.226.134:33003
     #ConnectTimeout: 10000
     #ReadTimeout: 10000
-    #MaxTotalHttpConnections: 500
-    #MaxConnectionsPerHost: 100
+    MaxTotalHttpConnections: 500
+    MaxConnectionsPerHost: 250
     maxAutoRetries: 3
     MaxAutoRetriesNextServer: 3
     OkToRetryOnAllOperations: true
-    ReadTimeout: 5000
-    ConnectTimeout: 3000
+    ReadTimeout: 20000
+    ConnectTimeout: 20000
+    retryableStatusCodes: 404,502
+    eureka:
+      enabled: true
     
 Product-service:
   ribbon:
-#    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
-#    listOfServers: http://localhost:33011,http://localhost:33012
+    #NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    #listOfServers: http://localhost:33011,http://localhost:33012
 #    ConnectTimeout: 10000
 #    ReadTimeout: 10000
-#    MaxTotalHttpConnections: 500
-#    MaxConnectionsPerHost: 100
+    MaxTotalHttpConnections: 500
+    MaxConnectionsPerHost: 250
     maxAutoRetries: 3
     MaxAutoRetriesNextServer: 3
     OkToRetryOnAllOperations: true
-    ReadTimeout: 5000
-    ConnectTimeout: 3000
-    
+    ReadTimeout: 20000
+    ConnectTimeout: 20000
+    retryableStatusCodes: 404,502
+    eureka:
+      enabled: true
+      
 Order-service:
   ribbon:
-#    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
-#    listOfServers: http://localhost:33021,http://localhost:33022
-#    ConnectTimeout: 10000
+    #NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    #listOfServers: http://localhost:33021,http://localhost:33022
+#    ConnectTimeout: 10000 
 #    ReadTimeout: 10000
-#    MaxTotalHttpConnections: 500
-#    MaxConnectionsPerHost: 100
+    MaxTotalHttpConnections: 500
+    MaxConnectionsPerHost: 250
     maxAutoRetries: 3
     MaxAutoRetriesNextServer: 3
     OkToRetryOnAllOperations: true
-    ReadTimeout: 5000
-    ConnectTimeout: 3000
-
+    ReadTimeout: 20000
+    ConnectTimeout: 20000
+    retryableStatusCodes: 404,502
+    eureka:
+      enabled: true
+      
 News-service:
   ribbon:
-#    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
-#    listOfServers: http://localhost:33031,http://localhost:33032
+    #NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    #listOfServers: http://localhost:33031,http://localhost:33032
 #    ConnectTimeout: 10000
 #    ReadTimeout: 10000
-#    MaxTotalHttpConnections: 500
-#    MaxConnectionsPerHost: 100
+    MaxTotalHttpConnections: 500
+    MaxConnectionsPerHost: 250
     maxAutoRetries: 3
     MaxAutoRetriesNextServer: 3
     OkToRetryOnAllOperations: true
-    ReadTimeout: 5000
-    ConnectTimeout: 3000
+    ReadTimeout: 20000
+    ConnectTimeout: 20000
+    retryableStatusCodes: 404,502
+    eureka:
+      enabled: true
