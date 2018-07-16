@@ -75,18 +75,20 @@ hystrix:
         isolation:
           thread:
           strategy: THEARD
-            timeoutInMilliseconds: 120000
+          #  timeoutInMilliseconds: 120000
     Order-service:
       execution:
         isolation:
           thread:
           strategy: THEARD
+          thread:
             timeoutInMilliseconds: 120000
     News-service:
       execution:
         isolation:
           thread:
           strategy: THEARD
+          thread:
             timeoutInMilliseconds: 120000
 
 User-service:
