@@ -69,25 +69,25 @@ hystrix:
         isolation:
           strategy: THEARD
           thread:
-            timeoutInMilliseconds: ..
+            timeoutInMilliseconds: 120000
     Product-service:
       execution:
         isolation:
           thread:
           strategy: THEARD
-            timeoutInMilliseconds: ..
+            timeoutInMilliseconds: 120000
     Order-service:
       execution:
         isolation:
           thread:
           strategy: THEARD
-            timeoutInMilliseconds: ..
+            timeoutInMilliseconds: 120000
     News-service:
       execution:
         isolation:
           thread:
           strategy: THEARD
-            timeoutInMilliseconds: ..
+            timeoutInMilliseconds: 120000
 
 User-service:
   ribbon:
