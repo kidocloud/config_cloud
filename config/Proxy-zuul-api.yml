@@ -75,7 +75,7 @@ hystrix:
         isolation:
           thread:
           strategy: THEARD
-          #  timeoutInMilliseconds: 120000
+            timeoutInMilliseconds: 120000
     Order-service:
       execution:
         isolation:
