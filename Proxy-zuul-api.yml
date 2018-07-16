@@ -38,25 +38,28 @@ zuul:
       serviceId: News-service
       stripPrefix: true
   retryable: true
+  #ribbonIsolationStrategy:THREAD
   ribbon:
     eager-load:
       enabled: true
-  eureka:
-    User-service:
-      semaphore:
-        maxSemaphores: 5000
-  eureka:
-    Product-service:
-      semaphore:
-        maxSemaphores: 5000
-  eureka:
-    Order-service:
-      semaphore:
-        maxSemaphores: 5000
-  eureka:
-    News-service:
-      semaphore:
-        maxSemaphores: 5000
+  #semaphore:
+  #  max-semaphores: 5000
+  #eureka:
+  #  User-service:
+  #    semaphore:
+  #      maxSemaphores: 5000
+  #eureka:
+  #  Product-service:
+  #    semaphore:
+  #      maxSemaphores: 5000
+  #eureka:
+  #  Order-service:
+  #    semaphore:
+  #      maxSemaphores: 5000
+  #eureka:
+  #  News-service:
+  #    semaphore:
+  #      maxSemaphores: 5000
  
 
 hystrix:
@@ -64,23 +67,27 @@ hystrix:
     User-service:
       execution:
         isolation:
+          strategy: THEARD
           thread:
-            timeoutInMilliseconds: 2000000
+            timeoutInMilliseconds: ..
     Product-service:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 2000000
+          strategy: THEARD
+            timeoutInMilliseconds: ..
     Order-service:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 2000000
+          strategy: THEARD
+            timeoutInMilliseconds: ..
     News-service:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 2000000
+          strategy: THEARD
+            timeoutInMilliseconds: ..
 
 User-service:
   ribbon:
