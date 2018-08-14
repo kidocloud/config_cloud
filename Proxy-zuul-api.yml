@@ -45,6 +45,10 @@ zuul:
       path: /shipperservice/**
       serviceId: Shipper-service
       stripPrefix: true
+    searchservice:
+      path: /searchservice/**
+      serviceId: Search-service
+      stripPrefix: true
   retryable: true
   #ribbonIsolationStrategy:THREAD
   ribbon:
@@ -106,6 +110,13 @@ hystrix:
           thread:
             timeoutInMilliseconds: 120000
     Shipper-service:
+      execution:
+        isolation:
+          thread:
+          strategy: THEARD
+          thread:
+            timeoutInMilliseconds: 120000
+    Search-service:
       execution:
         isolation:
           thread:
@@ -199,6 +210,23 @@ Event-service:
       enabled: true
 
 Shipper-service:
+  ribbon:
+    #NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    #listOfServers: http://localhost:33031,http://localhost:33032
+#    ConnectTimeout: 10000
+#    ReadTimeout: 10000
+    MaxTotalHttpConnections: 2000
+    MaxConnectionsPerHost: 1000
+    maxAutoRetries: 3
+    MaxAutoRetriesNextServer: 3
+    OkToRetryOnAllOperations: true
+    ReadTimeout: 120000
+    ConnectTimeout: 10000
+    retryableStatusCodes: 404,502
+    eureka:
+      enabled: true
+
+Search-service:
   ribbon:
     #NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
     #listOfServers: http://localhost:33031,http://localhost:33032
