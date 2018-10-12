@@ -13,4 +13,3 @@ logging:
   #file: newsservice.log
   file: /var/kido/logs/newsservice.log
   
-version: "test123"
